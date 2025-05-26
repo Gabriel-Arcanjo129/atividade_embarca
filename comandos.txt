@@ -1,0 +1,57 @@
+mkdir projeto-git-tarefa
+cd projeto-git-tarefa
+git init
+
+echo "Conteúdo do arquivo 1" > arquivo1.txt
+echo "Conteúdo do arquivo 2" > arquivo2.txt
+echo "Conteúdo do arquivo 3" > arquivo3.txt
+
+
+git add arquivo1.txt arquivo2.txt arquivo3.txt
+git commit -m "Commit inicial: adiciona três arquivos de texto"
+
+
+echo "Nova linha no arquivo 1" >> arquivo1.txt
+echo "Outra linha no arquivo 2" >> arquivo2.txt
+
+git status
+git diff
+
+
+git add arquivo1.txt arquivo2.txt
+git commit -m "Alterações nos arquivos 1 e 2"
+
+git log            
+git log --oneline  
+git log --graph     
+git log -p         
+
+git revert HEAD
+
+
+echo "Modificação temporária" >> arquivo3.txt
+git stash
+
+
+git checkout -b nova-linha-desenvolvimento
+
+
+git stash pop
+
+
+git reflog
+
+
+git checkout main
+COMMIT_HASH=$(git rev-list --max-parents=0 HEAD)
+git tag -a v1.0 -m "Versão estável inicial" $COMMIT_HASH
+
+
+git remote add origin https://github.com/Gabriel-Arcanjo129/atividade_embarca
+git push origin main --tags
+
+touch comandos.txt  
+git add comandos.txt
+git commit -m "Adiciona comandos utilizados na tarefa"
+git push origin main
+
